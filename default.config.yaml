@@ -2,8 +2,6 @@
 
 sudo_password: "{{ lookup('env', 'SUDO_PASSWORD') }}"
 github_access_token: "{{ lookup('env', 'GITHUB_ACCESS_TOKEN') }}"
-mas_email: "{{ lookup('env', 'MAS_EMAIL') }}"
-mas_password: "{{ lookup('env', 'MAS_PASSWORD') }}"
 
 brew_packages:
 - ack
@@ -31,41 +29,45 @@ brew_packages:
 
 brew_cask_packages:
 - alacritty
-# - backblaze
+- backblaze
 - betterzipql
-# - docker
-# - exodus
+- dash
+- docker
+- exodus
 - font-fira-code
 - font-fira-mono
+- google-chrome
 # - magicavoxel
-# - minikube
+- little-snitch
+- minikube
 # - mono-mdk
-# - provisionql
-# - qlcolorcode
-# - qlimagesize
-# - qlmarkdown
-# - qlprettypatch
-# - qlstephen
-# - qlvideo
-# - quicklook-csv
-# - quicklook-json
-# - quicklook-pat
-# - quicklookase
+- provisionql
+- qlcolorcode
+- qlimagesize
+- qlmarkdown
+- qlprettypatch
+- qlstephen
+- qlvideo
+- quicklook-csv
+- quicklook-json
+- quicklook-pat
+- quicklookase
 # - remote-play
-# - skype
+- skype
 - spotify
-# - steam
-# - suspicious-package
-# - tunnelblick
+- steam
+- suspicious-package
+- tunnelblick
 # - vagrant
 # - virtualbox
 # - virtualbox-extension-pack
 - visual-studio-code
 # - vlc
 # - vmware-fusion
-# - webpquicklook
+- webpquicklook
 # - wireshark
-# - xquartz
+- xquartz
+- zoomus
 
 mas_installed_apps:
 - { id: 417375580, name: "BetterSnapTool (1.9)" }
@@ -75,7 +77,7 @@ mas_installed_apps:
 - { id: 425424353, name: "The Unarchiver (4.1.0)" }
 - { id: 668208984, name: "GIPHY CAPTURE (4.1)" }
 - { id: 443987910, name: "1Password (6.8.8)" }
-- { id: 497799835, name: "Xcode (10.1)" }
+# - { id: 497799835, name: "Xcode (10.1)" }
 - { id: 824183456, name: "Affinity Photo (1.6.7)" }
 - { id: 803453959, name: "Slack (3.3.7)" }
 - { id: 824171161, name: "Affinity Designer (1.6.1)" }

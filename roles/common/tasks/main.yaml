@@ -1,6 +1,6 @@
 ---
 
-- name: create .test-ssh dir
+- name: create .ssh dir
   file:
     path: "{{ ansible_facts['user_dir'] }}/.ssh"
     state: directory
@@ -25,13 +25,18 @@
   homebrew:
     state: present
     name: "{{ brew_packages }}"
+  when: lookup('env', 'SKIP_HOMEBREW') == ''
 
 - name: Install cask apps
   homebrew_cask:
-    accept_external_apps: True
+    accept_external_apps: yes
     # sudo_password: "{{ sudo_password }}"
+    # greedy: yes
+    # update_homebrew: yes
+    # upgrade_all: yes
     state: present
     name: "{{ brew_cask_packages }}"
+  when: lookup('env', 'SKIP_HOMEBREW') == ''
 
 - name: Clone dotfiles
   git:
@@ -47,5 +52,4 @@
     creates: "{{ ansible_facts['user_dir'] }}/.oh-my-zsh"
 
 - name: Run macOS config
-  become: yes
-  command: "sh {{ ansible_facts['user_dir'] }}/.dotfiles/configs/.osx"
+  shell: "bash {{ ansible_facts['user_dir'] }}/.dotfiles/configs/.osx"
