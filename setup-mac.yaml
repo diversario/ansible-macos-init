@@ -1,4 +1,8 @@
 ---
 - hosts: all
+  gather_facts: true
   roles:
   - role: common
+  vars_prompt:
+    - name: github_access_token
+      prompt: Enter Github token
