@@ -2,16 +2,16 @@
 
 - name: create .test-ssh dir
   file:
-    path: "{{ ansible_facts['user_dir'] }}/.test-ssh"
+    path: "{{ ansible_facts['user_dir'] }}/.ssh"
     state: directory
 
 - name: generate SSH keys manually
-  command: ssh-keygen -q -f {{ ansible_facts['user_dir'] }}/.test-ssh/id_rsa -t rsa -C "ilya.shaisultanov@{{ ansible_facts['hostname'] }}" -N ""
+  command: ssh-keygen -q -f {{ ansible_facts['user_dir'] }}/.ssh/id_rsa -t rsa -C "ilya.shaisultanov@{{ ansible_facts['hostname'] }}" -N ""
   args:
-    creates: "{{ ansible_facts['user_dir'] }}/.test-ssh/id_rsa*"
+    creates: "{{ ansible_facts['user_dir'] }}/.ssh/id_rsa*"
 
 - name: Read SSH public key to authorize
-  shell: cat {{ ansible_facts['user_dir'] }}/.test-ssh/id_rsa.pub
+  shell: cat {{ ansible_facts['user_dir'] }}/.ssh/id_rsa.pub
   register: ssh_pub_key
 
 - name: Authorize key with GitHub
@@ -32,3 +32,20 @@
     # sudo_password: "{{ sudo_password }}"
     state: present
     name: "{{ brew_cask_packages }}"
+
+- name: Clone dotfiles
+  git:
+    repo: git@github.com:diversario/dotfiles.git
+    dest: "{{ ansible_facts['user_dir'] }}/.dotfiles"
+    accept_hostkey: yes
+    force: yes
+
+- name: Install dotfiles
+  command: "sh {{ ansible_facts['user_dir'] }}/.dotfiles/install.sh"
+  args:
+    chdir: "{{ ansible_facts['user_dir'] }}/.dotfiles"
+    creates: "{{ ansible_facts['user_dir'] }}/.oh-my-zsh"
+
+- name: Run macOS config
+  become: yes
+  command: "sh {{ ansible_facts['user_dir'] }}/.dotfiles/configs/.osx"

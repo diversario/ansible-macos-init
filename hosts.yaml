@@ -4,3 +4,4 @@ mac:
     localhost
   vars:
     ansible_connection: local
+    ansible_become_pass: "{{ sudo_password }}"
