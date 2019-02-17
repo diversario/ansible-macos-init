@@ -1,0 +1,82 @@
+---
+
+sudo_password: "{{ lookup('env', 'SUDO_PASSWORD') }}"
+github_access_token: "{{ lookup('env', 'GITHUB_ACCESS_TOKEN') }}"
+mas_email: "{{ lookup('env', 'MAS_EMAIL') }}"
+mas_password: "{{ lookup('env', 'MAS_PASSWORD') }}"
+
+brew_packages:
+- ack
+- awscli
+- cfssl
+- diff-so-fancy
+- docker-machine
+- docker-machine-driver-xhyve
+- go
+- highlight
+- httpie
+- hub
+- iproute2mac
+- jq
+- lesspipe
+- mas
+- node-build
+- nodenv
+- reattach-to-user-namespace
+- python-yq
+- socat
+- telnet
+- tree
+- vim
+
+brew_cask_packages:
+- alacritty
+# - backblaze
+- betterzipql
+# - docker
+# - exodus
+- font-fira-code
+- font-fira-mono
+# - magicavoxel
+# - minikube
+# - mono-mdk
+# - provisionql
+# - qlcolorcode
+# - qlimagesize
+# - qlmarkdown
+# - qlprettypatch
+# - qlstephen
+# - qlvideo
+# - quicklook-csv
+# - quicklook-json
+# - quicklook-pat
+# - quicklookase
+# - remote-play
+# - skype
+- spotify
+# - steam
+# - suspicious-package
+# - tunnelblick
+# - vagrant
+# - virtualbox
+# - virtualbox-extension-pack
+- visual-studio-code
+# - vlc
+# - vmware-fusion
+# - webpquicklook
+# - wireshark
+# - xquartz
+
+mas_installed_apps:
+- { id: 417375580, name: "BetterSnapTool (1.9)" }
+- { id: 456362093, name: "MuteMyMic (1.10)" }
+- { id: 406056744, name: "Evernote (7.8)" }
+- { id: 405399194, name: "Kindle (1.25.2)" }
+- { id: 425424353, name: "The Unarchiver (4.1.0)" }
+- { id: 668208984, name: "GIPHY CAPTURE (4.1)" }
+- { id: 443987910, name: "1Password (6.8.8)" }
+- { id: 497799835, name: "Xcode (10.1)" }
+- { id: 824183456, name: "Affinity Photo (1.6.7)" }
+- { id: 803453959, name: "Slack (3.3.7)" }
+- { id: 824171161, name: "Affinity Designer (1.6.1)" }
+- { id: 1043270657, name: "GIF Keyboard (2.0.5)" }

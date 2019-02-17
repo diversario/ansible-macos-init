@@ -1,8 +1,18 @@
 ---
 - hosts: all
   gather_facts: true
+  vars_files:
+    - default.config.yaml
   roles:
-  - role: common
-  vars_prompt:
-    - name: github_access_token
-      prompt: Enter Github token
+    - common
+    # - geerlingguy.homebrew
+    # - geerlingguy.mas
+  # vars_prompt:
+  #   - name: github_access_token
+  #     prompt: Enter Github token
+  #   - name: sudo_password
+  #     prompt: Enter sudo password
+  #   - name: mas_email
+  #     prompt: Enter Apple ID email
+  #   - name: mas_password
+  #     prompt: Enter Apple ID password

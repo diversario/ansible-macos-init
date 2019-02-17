@@ -1,22 +1,4 @@
 ---
-- name: test
-  pause:
-    seconds: 1
-
-# - debug: var=ansible_facts
-
-    # available in ansible 2.8
-# - name: generate SSH keys
-#   openssh_keypair:
-#     state: present
-#     comment: ilya.shaisultanov@{{ ansible_facts['nodename'] }}
-#     mode: 0600
-#     owner: "{{ ansible_facts['ansible_user_id'] }}"
-#     type: rsa
-#     size: 2048
-#     path:
-#     - "{{ ansible_facts['ansible_user_dir'] }}/.test-ssh/id_rsa"
-#     - "{{ ansible_facts['ansible_user_dir'] }}/.test-ssh/id_rsa.pub"
 
 - name: create .test-ssh dir
   file:
@@ -35,73 +17,18 @@
 - name: Authorize key with GitHub
   local_action:
     module: github_key
-    name: "{{ ansible_facts['hostname'] }} (auto added)"
+    name: "{{ ansible_facts['hostname'] }} (added by Ansible)"
     token: '{{ github_access_token }}'
     pubkey: '{{ ssh_pub_key.stdout }}'
 
 - name: Install packages
   homebrew:
     state: present
-    name:
-    - ack
-    - awscli
-    - cfssl
-    - diff-so-fancy
-    - docker-machine
-    - docker-machine-driver-xhyve
-    - go
-    - highlight
-    - httpie
-    - hub
-    - iproute2mac
-    - jq
-    - lesspipe
-    - node-build
-    - nodenvreattach-to-user-namespace
-    - python-yq
-    - socat
-    - telnet
-    - tree
-    - vim
+    name: "{{ brew_packages }}"
 
 - name: Install cask apps
   homebrew_cask:
-    allow_external_apps: True
+    accept_external_apps: True
+    # sudo_password: "{{ sudo_password }}"
     state: present
-    name:
-    - alacritty
-    - backblaze
-    - betterzipql
-    - docker
-    - exodus
-    - font-fira-code
-    - font-fira-mono
-    - magicavoxel
-    - minikube
-    - mono-mdk
-    - provisionql
-    - qlcolorcode
-    - qlimagesize
-    - qlmarkdown
-    - qlprettypatch
-    - qlstephen
-    - qlvideo
-    - quicklook-csv
-    - quicklook-json
-    - quicklook-pat
-    - quicklookase
-    - remote-play
-    - skype
-    - spotify
-    - steam
-    - suspicious-package
-    - tunnelblick
-    - vagrant
-    - virtualbox
-    - virtualbox-extension-pack
-    - visual-studio-code
-    - vlc
-    - vmware-fusion
-    - webpquicklook
-    - wireshark
-    - xquartz
+    name: "{{ brew_cask_packages }}"
