@@ -30,7 +30,6 @@ if [[ -z $GITHUB_ACCESS_TOKEN ]]; then
   read -s -p 'Github access token: ' GITHUB_ACCESS_TOKEN; echo ''
 fi
 
-# export SUDO_PASSWORD
 export GITHUB_ACCESS_TOKEN
 
 if [[ ! -f $(which brew) ]]; then
@@ -48,9 +47,4 @@ unzip -o $ZIPBALL_FILE
 cd ansible-macos-init-master
 
 ansible-galaxy install -r requirements.yaml
-
-# if [[ -z SKIP_MAS ]]; then
-  ansible-playbook -i hosts.yaml setup-mac.yaml
-# else
-#   ansible-playbook -i hosts.yaml setup-mac.yaml --extra-vars '{"mas_installed_apps":[]}'
-# fi
+ansible-playbook -i hosts.yaml setup-mac.yaml
