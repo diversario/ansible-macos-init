@@ -8,8 +8,6 @@ read -p "[IMPORTANT] Pre-requisites:
 Press any key to continue
 "
 
-read -p "Sign in into App Store and press any key to continue"
-
 # get credentials for stuff right away
 if [[ -z $SUDO_PASSWORD ]]; then
   read -s -p 'sudo password: ' SUDO_PASSWORD; echo ''
