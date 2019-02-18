@@ -58,3 +58,10 @@
 
 - name: Run macOS config
   shell: "bash {{ ansible_facts['user_dir'] }}/.dotfiles/configs/.osx"
+
+- name: Install macOS Appstore apps
+  include_role:
+    name:
+    - geerlingguy.homebrew
+    - geerlingguy.mas
+  when: lookup('env', 'SKIP_MAS') == ''

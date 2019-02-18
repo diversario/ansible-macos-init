@@ -49,8 +49,8 @@ cd ansible-macos-init-master
 
 ansible-galaxy install -r requirements.yaml
 
-if [[ -z SKIP_MAS ]]; then
+# if [[ -z SKIP_MAS ]]; then
   ansible-playbook -i hosts.yaml setup-mac.yaml
-else
-  ansible-playbook -i hosts.yaml setup-mac.yaml --extra-vars '{"mas_installed_apps":[]}'
-fi
+# else
+#   ansible-playbook -i hosts.yaml setup-mac.yaml --extra-vars '{"mas_installed_apps":[]}'
+# fi
