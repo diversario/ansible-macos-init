@@ -38,6 +38,11 @@
     name: "{{ brew_cask_packages }}"
   when: lookup('env', 'SKIP_HOMEBREW') == ''
 
+- name: Kill Zoom
+  shell: "killall zoom.us ZoomOpener > /dev/null 2>&1 || true"
+  ignore_errors: yes
+  changed_when: false
+
 - name: Clone dotfiles
   git:
     repo: git@github.com:diversario/dotfiles.git

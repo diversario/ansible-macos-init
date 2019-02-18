@@ -1,6 +1,6 @@
 ---
 
-sudo_password: "{{ lookup('env', 'SUDO_PASSWORD') }}"
+# sudo_password: "{{ lookup('env', 'SUDO_PASSWORD') }}"
 github_access_token: "{{ lookup('env', 'GITHUB_ACCESS_TOKEN') }}"
 
 brew_packages:

@@ -5,8 +5,8 @@
     - default.config.yaml
   roles:
     - common
-    # - geerlingguy.homebrew
-    # - geerlingguy.mas
+    - geerlingguy.homebrew
+    - geerlingguy.mas
   # vars_prompt:
   #   - name: github_access_token
   #     prompt: Enter Github token
