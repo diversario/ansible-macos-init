@@ -24,6 +24,7 @@ echo "Switching shell to zsh now to avoid a password prompt later"
 TEST_CURRENT_SHELL=$(basename "$SHELL")
 if [ "$TEST_CURRENT_SHELL" != "zsh" ]; then
   chsh -s $(grep /zsh$ /etc/shells | tail -1) || true
+  SHELL=/usr/local/bin/zsh # crappy hack to avoid password prompt
 fi
 
 if [[ -z $GITHUB_ACCESS_TOKEN ]]; then

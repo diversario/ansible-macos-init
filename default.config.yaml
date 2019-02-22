@@ -20,6 +20,7 @@ brew_packages:
 - mas
 - node-build
 - nodenv
+- pstree
 - reattach-to-user-namespace
 - python-yq
 - socat
@@ -62,10 +63,10 @@ brew_cask_packages:
 # - virtualbox
 # - virtualbox-extension-pack
 - visual-studio-code
-# - vlc
-# - vmware-fusion
+- vlc
+#- vmware-fusion
 - webpquicklook
-# - wireshark
+- wireshark
 - xquartz
 - zoomus
 
