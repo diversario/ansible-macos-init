@@ -10,6 +10,7 @@ brew_packages:
 - diff-so-fancy
 - docker-machine
 - docker-machine-driver-xhyve
+- fd
 - go
 - highlight
 - httpie
@@ -22,6 +23,7 @@ brew_packages:
 - nodenv
 - pstree
 - reattach-to-user-namespace
+- rg
 - python-yq
 - socat
 - telnet
