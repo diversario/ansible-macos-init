@@ -33,7 +33,6 @@ brew_packages:
 brew_cask_packages:
 - alacritty
 - backblaze
-- betterzipql
 - dash
 - docker
 - exodus
