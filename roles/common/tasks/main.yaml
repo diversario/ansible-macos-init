@@ -36,7 +36,7 @@
     # upgrade_all: yes
     state: present
     name: "{{ brew_cask_packages }}"
-  when: lookup('env', 'SKIP_HOMEBREW') == ''
+  when: lookup('env', 'SKIP_HOMEBREW_CASK') == ''
 
 - name: Kill Zoom
   shell: "killall zoom.us ZoomOpener > /dev/null 2>&1 || true"
